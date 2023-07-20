@@ -67,7 +67,7 @@ trait HasConditionalContainer
      *
      * @return array
      */
-    public function availablePanelsForUpdate(NovaRequest $request, Resource $resource = null, FieldCollection $fields)
+    public function availablePanelsForUpdate(NovaRequest $request, ?Resource $resource = null, ?FieldCollection $fields = null)
     {
         $panels = parent::availablePanelsForUpdate($request, $resource, $fields);
         $fields = parent::availableFields($request);
