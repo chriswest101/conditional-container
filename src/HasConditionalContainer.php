@@ -52,7 +52,7 @@ trait HasConditionalContainer
      *
      * @return array
      */
-    public function availablePanelsForCreate($request)
+    public function availablePanelsForCreate($request, ?FieldCollection $fields)
     {
         $panels = parent::availablePanelsForCreate($request);
         $fields = parent::availableFields($request);
