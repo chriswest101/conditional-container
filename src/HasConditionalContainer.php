@@ -37,9 +37,9 @@ trait HasConditionalContainer
      * @param NovaRequest $request
      * @return array
      */
-    public function availablePanelsForDetail(NovaRequest $request, Resource $resource)
+    public function availablePanelsForDetail(NovaRequest $request, Resource $resource, FieldCollection $fields)
     {
-        $panels = parent::availablePanelsForDetail($request, $resource);
+        $panels = parent::availablePanelsForDetail($request, $resource, $fields);
         $fields = parent::availableFields($request);
 
         return $this->mergePanels($panels, $this->findAllActiveContainers($fields, $this));
@@ -67,9 +67,9 @@ trait HasConditionalContainer
      *
      * @return array
      */
-    public function availablePanelsForUpdate(NovaRequest $request, Resource $resource = null)
+    public function availablePanelsForUpdate(NovaRequest $request, Resource $resource = null, FieldCollection $fields)
     {
-        $panels = parent::availablePanelsForUpdate($request, $resource);
+        $panels = parent::availablePanelsForUpdate($request, $resource, $fields);
         $fields = parent::availableFields($request);
 
         return $this->mergePanels($panels, $this->findAllContainers($fields));
